@@ -190,7 +190,7 @@ input[type=submit]:hover {
     
 
   </form>
-    <form id="imgUpload" method="post" enctype="multipart/form-data">
+    <form id="imgUpload" method="post" enctype="multipart/form-data" action="https://follege.herokuapp.com/events/addPhoto">
       <div class="row">
         <div class="col-25">
           <label for="image">Insert Image</label>
@@ -202,7 +202,7 @@ input[type=submit]:hover {
     
   </div>
 <center>
-  <button class="btn btn-primary" disabled>
+  <button class="btn btn-primary" type="submit">
   <span class="spinner-grow spinner-grow-sm"></span>
   Uplaod
 </button>
