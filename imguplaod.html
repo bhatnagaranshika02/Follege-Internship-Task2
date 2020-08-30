@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -170,9 +181,13 @@ input[type=submit]:hover {
           <option value="8">quizzes & case study</option>
           <option value="9">design</option>
         </select>
-        <input type="submit" value="Submit">
+        <br>
+        <button type="button" class="btn btn-outline-primary float-right">Submit</button>
+       
       </div>
     </div>
+
+    
 
   </form>
     <form id="imgUpload" method="post" enctype="multipart/form-data">
@@ -182,9 +197,16 @@ input[type=submit]:hover {
         </div>
         <div class="col-75">
       <input id="imageFile" name="imageFile" type="file">
-      <input id="thisbtn" type="submit" value="Submit">
+      
     </div>
+    
   </div>
+<center>
+  <button class="btn btn-primary" disabled>
+  <span class="spinner-grow spinner-grow-sm"></span>
+  Uplaod
+</button>
+</center>
   </form>
 </div>
 </body>
