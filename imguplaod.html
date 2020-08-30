@@ -82,7 +82,7 @@ input[type=submit]:hover {
 <body>
 
 <div class="container">
-  <form action="/action_page.php">
+  <form action="https://follege.herokuapp.com/events/addEvent" method="post">
     <div class="row">
       <div class="col-25">
         <label for="fname">Name of the Event</label>
@@ -158,7 +158,7 @@ input[type=submit]:hover {
         <label for="country">Interests</label>
       </div>
       <div class="col-75">
-        <select id="country" name="interests" multiple>
+        <select id="country" name="interests">
           <option value="0">business</option>
           <option value="1">marketing</option>
           <option value="2">stock market</option>
