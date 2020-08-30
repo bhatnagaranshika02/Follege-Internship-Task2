@@ -1,22 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
 <style>
-[type="date"] {
-  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+[type="date"]{
+  background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calender_2.png) 97% 50% no-repeat;
 }
-[type="date"]::-webkit-inner-spin-button {
+[type="date"]::-webkit-inner-spin-button{
   display: none;
 }
-[type="date"]::-webkit-calendar-picker-indicator {
+[type="date"]::-webkit-calender-picker-indicator{
   opacity: 0;
 }
-
-
 * {
   box-sizing: border-box;
 }
@@ -84,126 +81,111 @@ input[type=submit]:hover {
 </head>
 <body>
 
-<h2>Responsive Form</h2>
-<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
-
 <div class="container">
   <form action="/action_page.php">
     <div class="row">
       <div class="col-25">
-        <label for="fname">Name of the event:</label>
+        <label for="fname">Name of the Event</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="eventname" placeholder="Type here...">
+        <input type="text" id="fname" name="title" placeholder="Event name..">
       </div>
     </div>
-
-     <div class="row">
+    <div class="row">
       <div class="col-25">
-        <label style="display: block;" for="country">Date:</label>
+        <label for="lname">Hostname</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="by" placeholder="Enter Host Name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label style="display: block;" for="country">Date</label>
       </div>
       <div class="col-25">
-        <label style="display: block;" for="birthday">Starting Date:</label>
-<input style="border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-  width: 190px;" type="datetime-local" name="dateofbirth" id="dateofbirth">
-</div>
-<div class="col-25">
-   <label style="display: block;" for="birthday">Ending Date:</label>
- <input style="border: 1px solid #c4c4c4;
-  border-radius: 5px;
-  background-color: #fff;
-  padding: 3px 5px;
-  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
-  width: 190px;" type="datetime-local" name="dateofbirth" id="dateofbirth">
-
+        <label style="display: block;" for="birthday">Starting Date</label>
+        <input style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="startDateTime" id="dob">
+      </div>
+      <div class="col-25">
+        <label style="display: block;" for="birthday">Ending Date</label>
+        <input style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="endDateTime" id="doe">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="lname">Venue</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="venue" placeholder="Enter Venue..">
+      </div>
+    </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="cost">Enter Cost</label>
+    </div>
+    <div class="col-75">
+      <input type="text" placeholder="Enter cost" name="cost">
+    </div>
   </div>
-    </div>
-
-
     <div class="row">
       <div class="col-25">
-        <label for="lname">URL: </label>
+        <label for="subject">About Event</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="url" placeholder="Enter url..">
+        <textarea id="subject" name="about" placeholder="Enter about the event.." style="height:200px"></textarea>
       </div>
     </div>
-
+    <br/><br/>
     <div class="row">
       <div class="col-25">
-        <label for="fname">Host name:</label>
+        <label for="lname">URL</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="hostname" placeholder="Type here...">
+        <input type="text" id="lname" name="url" placeholder="Enter URL..">
       </div>
     </div>
-
     <div class="row">
       <div class="col-25">
-        <label for="fname">Venue:</label>
+        <label for="lname">Image URL</label>
       </div>
       <div class="col-75">
-        <input type="text" id="fname" name="venue" placeholder="Type here...">
+        <input type="text" id="lname" name="imageUrl" placeholder="Enter URL..">
       </div>
     </div>
-
-
     <div class="row">
       <div class="col-25">
-        <label for="country">Interests:</label>
+        <label for="country">Interests</label>
       </div>
       <div class="col-75">
-        <select id="country" name="interests">
+        <select id="country" name="interests" multiple>
           <option value="0">business</option>
           <option value="1">marketing</option>
           <option value="2">stock market</option>
-           <option value="3">programming</option>
-            <option value="4">fun & chill</option>
-             <option value="5">tech & startups</option>
-              <option value="6">culture & fest</option>
-               <option value="7">projects</option>
-                <option value="8">quizzes & case studies</option>
-                 <option value="9">design</option>
-
+          <option value="3">programming</option>
+          <option value="4">fun & chill</option>
+          <option value="5">tech & startups</option>
+          <option value="6">culture & fest</option>
+          <option value="7">projects</option>
+          <option value="8">quizzes & case study</option>
+          <option value="9">design</option>
         </select>
+        <input type="submit" value="Submit">
       </div>
     </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="subject">About</label>
-      </div>
-      <div class="col-75">
-        <textarea id="subject" name="subject" placeholder="About the event..." style="height:200px"></textarea>
-      </div>
-   
-    </div>
-    <br>
-    <br>
-       <div class="Neon Neon-theme-dragdropbox">
-        <input style="z-index: 999; opacity: 0; width: 320px; height: 200px; position: absolute; right: 0px; left: 0px; margin-right: auto; margin-left: auto;" name="files[]" id="filer_input2" multiple="multiple" type="file">
 
-        <div class="Neon-input-dragDrop"><div class="Neon-input-inner">
-        	<div class="Neon-input-icon"><i class="fa fa-file-image-o">
-        		
-        	</i>
+  </form>
+    <form id="imgUpload" method="post" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-25">
+          <label for="image">Insert Image</label>
         </div>
-        <div class="Neon-input-text">
-        	<h3>Drag&amp;Drop files here</h3>
-         <span style="display:inline-block; margin: 15px 0">or</span>
-     </div><a class="Neon-input-choose-btn blue">Browse Files</a></div>
- </div>
-        </div>
-    </form>
+        <div class="col-75">
+      <input id="imageFile" name="imageFile" type="file">
+      <input id="thisbtn" type="submit" value="Submit">
     </div>
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
+  </div>
   </form>
 </div>
-
 </body>
 </html>
