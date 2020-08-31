@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-
-
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="task2.css">
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
 
 <style>
 [type="date"]{
@@ -92,8 +88,10 @@ input[type=submit]:hover {
 </head>
 <body>
 
+<h2>Responsive Form</h2>
+<p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other.</p>
+
 <div class="container">
-  <form action="https://follege.herokuapp.com/events/addEvent" method="post">
     <div class="row">
       <div class="col-25">
         <label for="fname">Name of the Event</label>
@@ -116,11 +114,11 @@ input[type=submit]:hover {
       </div>
       <div class="col-25">
         <label style="display: block;" for="birthday">Starting Date</label>
-        <input style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="startDateTime" id="sdate">
+        <input id="sdate" style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="startDateTime" id="dob">
       </div>
       <div class="col-25">
         <label style="display: block;" for="birthday">Ending Date</label>
-        <input style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="endDateTime" id="edate">
+        <input id="edate" style="border: 1px solid #c4c4c4; border-radius: 5px; background-color: #fff; padding: 3px 5px; box-shadow: inset 0 3px 6px rgba(0,0,0,0.1); width: 190px;" type="datetime-local" name="endDateTime" id="doe">
       </div>
     </div>
     <div class="row">
@@ -132,13 +130,13 @@ input[type=submit]:hover {
       </div>
     </div>
     <div class="row">
-    <div class="col-25">
-      <label for="cost">Enter Cost</label>
+      <div class="col-25">
+        <label for="cost">Cost</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="cost" name="cost" placeholder="Enter Cost..">
+      </div>
     </div>
-    <div class="col-75">
-      <input id="cost" type="text" placeholder="Enter cost" name="cost">
-    </div>
-  </div>
     <div class="row">
       <div class="col-25">
         <label for="subject">About Event</label>
@@ -161,7 +159,7 @@ input[type=submit]:hover {
         <label for="lname">Image URL</label>
       </div>
       <div class="col-75">
-        <input type="text" id="iurl" name="imageUrl" placeholder="Enter URL..">
+        <input type="text" id="iUrl" name="imageUrl" placeholder="Enter ImageURL..">
       </div>
     </div>
     <div class="row">
@@ -169,7 +167,7 @@ input[type=submit]:hover {
         <label for="country">Interests</label>
       </div>
       <div class="col-75">
-        <select id="scripts" name="interests">
+        <select id="interests" name="interests" multiple>
           <option value="0">business</option>
           <option value="1">marketing</option>
           <option value="2">stock market</option>
@@ -181,47 +179,87 @@ input[type=submit]:hover {
           <option value="8">quizzes & case study</option>
           <option value="9">design</option>
         </select>
-        <br>
-        <button type="button" class="btn btn-outline-primary float-right" onclick="submit()">Submit</button>
-       
+        <button class="btn btn-outline-primary float-right" onclick="submitData()" value="Submit">submit</button>
       </div>
     </div>
-<script>
-  function submitData(){
-    var ename=document.getElementbyId("ename");
-    var hname=document.getElementbyId("hname");
-    var sdate=document.getElementbyId("sdate");
-    var edate=document.getElementbyId("edate");
-    var venue=document.getElementbyId("venue");
-    var cost=document.getElementbyId("cost");
-    var url=document.getElementbyId("url");
-    var iurl=document.getElementbyId("iurl");
-    var about=document.getElementbyId("about");
-    var scripts=document.getElementbyId("scripts");
-  }
-  
-</script>
-    
 
-  </form>
-    <form id="imgUpload" method="post" enctype="multipart/form-data" action="https://follege.herokuapp.com/events/addPhoto">
-      <div class="row">
-        <div class="col-25">
-          <label for="image">Insert Image</label>
-        </div>
-        <div class="col-75">
-      <input id="imageFile" name="imageFile" type="file">
-      
-    </div>
-    
-  </div>
-<center>
-  <button class="btn btn-primary" type="submit">
-  <span class="spinner-grow spinner-grow-sm"></span>
-  Uplaod
-</button>
-</center>
+  <br/><br/>
+  
+  <form id="imgUpload" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-25">
+        <label for="imageFile">Insert Image</label>
+      </div>
+      <div class="col-75">
+        <input id="imageFile" name="imageFile" type="file">
+      </div>
+      <center>
+      <button type="submit" class="btn btn-outline-primary float-right">Submit</button>
+    </center>
   </form>
 </div>
+
+  <script type="text/javascript">
+    function submitData(){
+      data=getData();
+      proxyurl="https://cors-anywhere.herokuapp.com/";
+      url="https://follege.herokuapp.com/events/addEvent";
+      method="POST";
+
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+          alert(this.responseText);
+      }
+    };
+
+    xhttp.open(method,proxyurl+url, false);
+    xhttp.send(data);
+
+    }
+
+    function getData(){
+      var ename=document.getElementById("ename");
+      var hname=document.getElementById("hname");
+      var sdate=document.getElementById("sdate");
+      var edate=document.getElementById("edate");
+      var venue=document.getElementById("venue");
+      var url=document.getElementById("url");
+      var iurl=document.getElementById("iUrl");
+      var cost=document.getElementById("cost");
+      var about=document.getElementById("about");
+      var interests=document.getElementById("interests");
+
+      var interestslist=getSelected(interests);
+
+      var data={};
+      data["title"]=ename.value;
+      data["by"]=hname.value;
+      data["startDateTime"]=sdate.value;
+      data["endDateTime"]=edate.value;
+      data["venue"]=venue.value;
+      data["cost"]=cost.value;
+      data["about"]=about.value;
+      data["link"]=url.value;
+      data["imageUrl"]=iurl.value;
+      data["interests"]=interestslist;
+      
+      return JSON.stringify(data);
+    }
+
+    function getSelected(sel){
+        var opt;
+        var selectedlist=[];
+        for ( var i = 0, len = sel.options.length; i < len; i++ ) {
+            opt = sel.options[i];
+            if ( opt.selected === true ) {
+                selectedlist.push({"id":i,"interest":opt.text})
+            }
+        }
+        return selectedlist;
+    }
+
+  </script>
+
 </body>
 </html>
